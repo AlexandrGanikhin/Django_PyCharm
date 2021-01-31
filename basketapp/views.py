@@ -10,7 +10,7 @@ from basketapp.models import Basket
 @login_required
 def basket_add(request, id_product=None):
     product = get_object_or_404(Product, id=id_product)
-    baskets = Basket.objects.filter(user=request.user, product=product)
+    baskets = Basket.objects.filter(user=request.user, product=product).select_related()
 
     if not baskets.exists():
         basket = Basket(user=request.user, product=product)
@@ -40,7 +40,7 @@ def basket_edit(request, id, quantity):
             basket.save()
         else:
             basket.delete()
-        baskets = Basket.objects.filter(user=request.user)
+        baskets = Basket.objects.filter(user=request.user).select_related()
         context = {
             'baskets': baskets,
         }
