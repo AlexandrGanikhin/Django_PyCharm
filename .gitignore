@@ -1,6 +1,6 @@
 .idea
 db.sqlite3
 #vk.json
-media/
+#media/
 tmp/
 __pycache__/
