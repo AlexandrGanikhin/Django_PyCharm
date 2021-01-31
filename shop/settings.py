@@ -34,8 +34,10 @@ INSTALLED_APPS = [
     'basketapp',
     'adminapp',
     'ordersapp',
+
     'debug_toolbar',
     'template_profiler_panel',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
