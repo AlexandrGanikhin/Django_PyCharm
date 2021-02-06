@@ -20,7 +20,7 @@ from django.utils.functional import cached_property
 class Basket(models.Model):
     # objects = BasketQuerySet.as_manager() #привязываем менеджер модели к модели
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='basket')
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(default=0)
     created_timestamp = models.DateTimeField(auto_now_add=True)
